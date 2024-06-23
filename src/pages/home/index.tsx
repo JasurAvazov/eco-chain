@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Layout from '@/components/Layout';
-import styles from '@/styles/Home.module.scss';
+import styles from '@/styles/modules/Home.module.scss';
 
 const Home = () => {
   const [activeLevel, setActiveLevel] = useState(1);
@@ -11,7 +10,7 @@ const Home = () => {
   };
 
   return (
-    <Layout>
+    <>
       <header className={styles.header}>
         <div className={styles.top}>
           <div className={styles.avatar}>
@@ -65,7 +64,7 @@ const Home = () => {
           ))}
         </div>
       </main>
-    </Layout>
+    </>
   );
 };
 

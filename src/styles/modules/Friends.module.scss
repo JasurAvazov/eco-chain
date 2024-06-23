@@ -1,0 +1,229 @@
+@import '../mixins.scss';
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include resa('padding', 24px);
+  color: var(--text);
+  font-weight: 400;
+  @include resa('font-size', 14px);
+  @include resa('line-height', 14px);
+
+  span {
+    font-weight: 400;
+    @include resa('font-size', 14px);
+    @include resa('line-height', 14px);
+    color: var(--text-2);
+    @include resa('margin-left', 12px);
+  }
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  @include resa('padding-left', 16px);
+  @include resa('padding-right', 16px);
+
+  .banner {
+    width: 100%;
+    @include resa('height', 103px);
+    @include resa('border-radius', 11px);
+    background-color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    @include resa('padding-left', 16px);
+    @include resa('padding-right', 16px);
+
+    .pic {
+      @include resa('width', 40px);
+      @include resa('height', 40px);
+      @include resa('border-radius', 4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .about {
+      @include resa('width', 190px);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      @include resa('margin-left', 12px);
+
+      .name {
+        font-weight: 400;
+        @include resa('font-size', 16px);
+        @include resa('line-height', 16px);
+        color: var(--text);
+        @include resa('margin-bottom', 8px);
+      }
+
+      .price {
+        font-weight: 400;
+        @include resa('font-size', 12px);
+        @include resa('line-height', 12px);
+        color: var(--text-2);
+        display: flex;
+        align-items: center;
+
+        span {
+          font-weight: 500;
+          @include resa('font-size', 12px);
+          color: var(--text);
+          @include resa('margin-left', 6px);
+          display: flex;
+          align-items: center;
+          @include resa('gap', 4px);
+        }
+      }
+    }
+
+    .get {
+      @include resa('border-radius', 32px);
+      @include resa('padding', 10px);
+      @include resa('padding-left', 12px);
+      @include resa('padding-right', 12px);
+      border: none;
+      font-weight: 500;
+      @include resa('font-size', 12px);
+      @include resa('line-height', 12px);
+    }
+  }
+
+  .desc {
+    width: 100%;
+    @include resa('margin-top', 16px);
+    @include resa('padding-bottom', 16px);
+    @include resa('margin-bottom', 16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 400;
+    @include resa('font-size', 12px);
+    color: var(--text-2);
+    border-bottom: solid var(--border);
+    @include resa('border-width', 1px);
+  }
+
+  .yourFriends {
+    font-weight: 400;
+    @include resa('font-size', 12px);
+    @include resa('line-height', 12px);
+    color: var(--text-2);
+  }
+
+  .list {
+    width: 100%;
+    @include resa('max-height', 250px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow: scroll;
+    @include resa('gap', 8px);
+    overflow: scroll;
+    @include resa('margin-top', 16px);
+
+    .item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      @include resa('padding-top', 16px);
+      @include resa('padding-bottom', 16px);
+      border-bottom: solid var(--border);
+      @include resa('border-width', 1px);
+      position: relative;
+
+      &:first-child {
+        @include resa('bottom', 100px);
+      }
+
+      &.disabled {
+        .get {
+          opacity: 0.4;
+          pointer-events: none;
+        }
+      }
+
+      .pic {
+        @include resa('width', 40px);
+        @include resa('height', 40px);
+        background-color: var(--bg);
+        @include resa('border-radius', 4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        font-weight: 600;
+        @include resa('font-size', 16px);
+      }
+
+      .about {
+        @include resa('width', 200px);
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        @include resa('margin-left', 12px);
+
+        .title {
+          font-weight: 400;
+          @include resa('font-size', 12px);
+          @include resa('line-height', 12px);
+          color: var(--text);
+          @include resa('margin-bottom', 4px);
+        }
+        
+        .subtitle {
+          font-weight: 400;
+          @include resa('font-size', 12px);
+          @include resa('line-height', 12px);
+          color: var(--text-2);
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      .coins {
+        position: absolute;
+        right: 0;
+        color: var(--text);
+        font-weight: 500;
+        @include resa('font-size', 16px);
+        @include resa('line-height', 16px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include resa('gap', 7px);
+      }
+    }
+  }
+
+  .invite {
+    position: absolute;
+    @include resa('padding-top', 16px);
+    @include resa('padding-bottom', 16px);
+    @include resa('bottom', 86px);
+    @include resa('left', 16px);
+    @include resa('right', 16px);
+    background-color: var(--light-green);
+    border: none;
+    @include resa('border-radius', 11px);
+    font-weight: 500;
+    @include resa('font-size', 11px);
+  }
+}

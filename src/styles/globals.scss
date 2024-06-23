@@ -17,8 +17,41 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
+  overscroll-behavior: none;
 }
 
 body {
   background: var(--bg-2);
+}
+
+@media (max-width: 767px) {
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  button,
+  a,
+  input,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-focus-ring-color: transparent;
+    outline: none;
+  }
+
+  button:focus,
+  button:active,
+  a:focus,
+  a:active,
+  input:focus,
+  input:active,
+  textarea:focus,
+  textarea:active {
+    outline: none;
+    box-shadow: none;
+  }
 }

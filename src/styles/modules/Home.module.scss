@@ -1,4 +1,4 @@
-@import '../styles/mixins.scss';
+@import '../mixins.scss';
 
 .header {
   display: flex;
@@ -7,6 +7,7 @@
   flex-direction: column;
   @include resa('padding', 16px);
   @include resa('padding-top', 28px);
+  @include resa('padding-bottom', 0px);
   background-color: var(--bg-2);
   z-index: 2;
   position: relative;
@@ -104,7 +105,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  @include resa('padding-top', 135px);
+  @include resa('padding-top', 205px);
   @include resa('padding-bottom', 175px);
   overflow: hidden;
   display: flex;

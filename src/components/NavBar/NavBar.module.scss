@@ -33,7 +33,7 @@
       @include resa('margin-bottom', 3px);
 
       path {
-        transition: fill 200ms;
+        transition: fill 200ms, stroke 200ms;
         fill: var(--text-2);
       }
     }
@@ -43,6 +43,7 @@
 
       path {
         fill: var(--text);
+        stroke: var(--text);
       }
     }
   }

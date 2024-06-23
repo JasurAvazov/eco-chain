@@ -26,8 +26,8 @@ const NavBar = () => {
         Главная
       </Link>
       <Link
-        href="/transactions"
-        className={`${styles.tab} ${isActive('/transactions') ? styles.active : ''}`}
+        href="/friends"
+        className={`${styles.tab} ${isActive('/friends') ? styles.active : ''}`}
       >
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.4">
