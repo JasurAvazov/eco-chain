@@ -1,0 +1,209 @@
+@import '../styles/mixins.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @include resa('padding', 16px);
+  @include resa('padding-top', 28px);
+  background-color: var(--bg-2);
+  z-index: 2;
+  position: relative;
+
+  .top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include resa('margin-bottom', 12px);
+  }
+
+  .bot {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid var(--border);
+    @include resa('border-width', 1px);
+    @include resa('padding-bottom', 16px);
+
+    .left {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+
+      .text {
+        font-weight: 400;
+        @include resa('font-size', 12px);
+        @include resa('line-height', 12px);
+        @include resa('margin-bottom', 4px);
+        color: var(--text-2);
+      }
+
+      .name {
+        font-weight: 400;
+        @include resa('font-size', 14px);
+        @include resa('line-height', 14px);
+        color: var(--text);
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      .perHour {
+        font-weight: 400;
+        @include resa('font-size', 12px);
+        @include resa('line-height', 12px);
+        color: var(--light-green);
+        @include resa('margin-right', 4px);
+        position: relative;
+        @include resa('bottom', 5px);
+      }
+
+      .coins {
+        font-weight: 600;
+        @include resa('font-size', 32px);
+        @include resa('line-height', 20px);
+        color: var(--text);
+        display: flex;
+        align-items: center;
+
+        svg {
+          @include resa('width', 36px);
+          @include resa('height', 36px);
+          @include resa('margin-left', 7px);
+        }
+      }
+    }
+  }
+}
+
+.avatar {
+  @include resa('width', 32px);
+  @include resa('height', 32px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.content {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include resa('padding-top', 135px);
+  @include resa('padding-bottom', 175px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 20vmin 4vmin var(--light-purple);
+    @include resa('width', 200px);
+    @include resa('height', 200px);
+
+    img {
+      @include resa('width', 234px);
+      @include resa('height', 230px);
+    }
+  }
+
+  .lvls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include resa('gap', 5px);
+    position: absolute;
+    @include resa('bottom', 88px);
+
+    .lvl {
+      @include resa('width', 64px);
+      background-color: transparent;
+      border: none;
+      @include resa('border-radius', 8px);
+      @include resa('padding', 8px);
+      @include resa('padding-left', 14px);
+      @include resa('padding-right', 14px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      
+      :hover, &.active {
+        background-color: var(--light-hover);
+      }
+
+      img {
+        @include resa('width', 32px);
+        @include resa('height', 32px);
+        @include resa('margin-bottom', 8px);
+      }
+
+      .title {
+        width: max-content;
+        font-weight: 700;
+        @include resa('font-size', 10px);
+        color: var(--text);
+        @include resa('margin-bottom', 4px);
+      }
+      
+      .subtitle {
+        width: max-content;
+        font-weight: 400;
+        @include resa('font-size', 12px);
+        color: var(--text-2);
+      }
+    }
+  }
+}
+
+.desc {
+  font-weight: 400;
+  @include resa('font-size', 12px);
+  @include resa('line-height', 12px);
+  @include resa('margin-top', 40px);
+  color: var(--text-2);
+}
+
+.boost {
+  position: absolute;
+  @include resa('top', 151px);
+  @include resa('padding', 8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include resa('gap', 4px);
+  background-color: var(--bg);
+  @include resa('border-radius', 50px);
+  font-weight: 400;
+  @include resa('font-size', 12px);
+  @include resa('line-height', 12px);
+  text-decoration: none;
+  color: var(--text);
+
+  svg {
+    @include resa('width', 16px);
+    @include resa('height', 16px);
+  }
+}

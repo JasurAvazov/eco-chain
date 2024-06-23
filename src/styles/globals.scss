@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import './mixins.scss';
+
+:root {
+  --bg: #202020;
+  --bg-2: #141414;
+  --text: #FFFFFF;
+  --text-2: #88888A;
+  --border: #ffffff1a;
+  --light-green: #D3F491;
+  --light-hover: #ffffff0d;
+  --light-purple: #706D87;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: var(--bg-2);
+}

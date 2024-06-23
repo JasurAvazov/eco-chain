@@ -1,0 +1,49 @@
+@import '../../styles/mixins.scss';
+
+.tabs {
+  background-color: var(--bg);
+  width: 100%;
+  @include resa('height', 70px);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include resa('gap', 42px);
+  z-index: 100;
+
+  .tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+    @include resa('font-size', 12px);
+    color: var(--text-2);
+    transition: color 200ms;
+    text-decoration: none;
+
+    svg {
+      @include resa('width', 22px);
+      @include resa('height', 22px);
+      @include resa('margin-bottom', 3px);
+
+      path {
+        transition: fill 200ms;
+        fill: var(--text-2);
+      }
+    }
+
+    &.active {
+      color: var(--text);
+
+      path {
+        fill: var(--text);
+      }
+    }
+  }
+}

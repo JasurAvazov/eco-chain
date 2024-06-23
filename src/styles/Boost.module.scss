@@ -1,0 +1,110 @@
+@import '../styles/mixins.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include resa('padding-top', 28px);
+  @include resa('padding-bottom', 24px);
+  background-color: var(--bg-2);
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  @include resa('left', 16px);
+  @include resa('right', 16px);
+  border-bottom: solid var(--border);
+  @include resa('border-width', 1px);
+
+  .left {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    .back {
+      font-weight: 400;
+      @include resa('font-size', 14px);
+      @include resa('line-height', 14px);
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include resa('gap', 12px);
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    .perHour {
+      font-weight: 400;
+      @include resa('font-size', 12px);
+      @include resa('line-height', 12px);
+      color: var(--light-green);
+      @include resa('margin-right', 4px);
+      position: relative;
+      @include resa('bottom', 5px);
+    }
+
+    .coins {
+      font-weight: 600;
+      @include resa('font-size', 32px);
+      @include resa('line-height', 20px);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+
+      svg {
+        @include resa('width', 36px);
+        @include resa('height', 36px);
+        @include resa('margin-left', 7px);
+      }
+    }
+  }
+}
+
+.content {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include resa('padding', 16px);
+  @include resa('padding-top', 113px);
+  @include resa('padding-bottom', 70px);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  .title {
+    font-weight: 400;
+    @include resa('font-size', 12px);
+    @include resa('line-height', 12px);
+    color: var(--text-2);
+    @include resa('margin-bottom', 16px);
+  }
+
+  .list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow: scroll;
+    @include resa('gap', 8px);
+
+    .item {
+      width: 100%;
+      @include resa('height', 70px);
+      background-color: red;
+      @include resa('border-radius', 4px);
+    }
+  }
+}
