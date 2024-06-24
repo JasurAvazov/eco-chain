@@ -148,10 +148,6 @@
       @include resa('border-width', 1px);
       position: relative;
 
-      &:first-child {
-        @include resa('bottom', 100px);
-      }
-
       &.disabled {
         .get {
           opacity: 0.4;
