@@ -5,11 +5,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  @include resa('padding', 24px);
   color: var(--text);
   font-weight: 400;
   @include resa('font-size', 14px);
   @include resa('line-height', 14px);
+  @include resa('height', 60px);
 
   span {
     font-weight: 400;

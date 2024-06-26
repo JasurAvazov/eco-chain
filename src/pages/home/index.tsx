@@ -1,12 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, MouseEvent } from 'react';
 import Link from 'next/link';
 import styles from '@/styles/modules/Home.module.scss';
 
+interface ClickEffect {
+  id: number;
+  x: number;
+  y: number;
+}
+
 const Home = () => {
-  const [activeLevel, setActiveLevel] = useState(1);
+  const [activeLevel, setActiveLevel] = useState<number>(1);
+  const [clickEffects, setClickEffects] = useState<ClickEffect[]>([]);
 
   const handleLevelClick = (level: number) => {
     setActiveLevel(level);
+  };
+
+  const handleButtonClick = (event: MouseEvent<HTMLButtonElement>) => {
+    const { clientX, clientY } = event;
+    const newEffect: ClickEffect = { id: Date.now(), x: clientX, y: clientY };
+
+    setClickEffects((prevEffects) => [...prevEffects, newEffect]);
+
+    setTimeout(() => {
+      setClickEffects((prevEffects) => prevEffects.filter(effect => effect.id !== newEffect.id));
+    }, 1500);
+  };
+
+  const getRandomNumber = (): number => {
+    return Math.floor(Math.random() * (34 - 20 + 1)) + 20;
   };
 
   return (
@@ -45,8 +67,8 @@ const Home = () => {
           </svg>
           Дать буст
         </Link>
-        <button type='button' className={styles.button}>
-          <img draggable='false' src="/coin/main.svg" className={styles.main} alt="" />
+        <button type='button' className={styles.button} onClick={handleButtonClick}>
+          <img draggable='false' src="/coin/main.png" className={styles.main} alt="" />
         </button>
         <p className={styles.desc}>Кликай на кислород</p>
         <div className={styles.lvls}>
@@ -57,12 +79,27 @@ const Home = () => {
               className={`${styles.lvl} ${activeLevel === level ? styles.active : ''}`}
               onClick={() => handleLevelClick(level)}
             >
-              <img draggable='false' src="/coin/main.svg" alt="" />
+              <img draggable='false' src="/coin/main.png" alt="" />
               <p className={styles.title}>LVL {level}</p>
               <p className={styles.subtitle}>+3/тап</p>
             </button>
           ))}
         </div>
+        {clickEffects.map((effect) => (
+          <div
+            key={effect.id}
+            className={styles.effect}
+            style={{ top: effect.y - 14, left: effect.x - 14 }}
+          >
+            <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle opacity="0.4" cx="14" cy="14.5" r="14" fill="#D9D9D9" />
+              <g opacity="0.4">
+                <path d="M12.7953 19.7217C11.6278 19.7217 10.6333 19.4677 9.81169 18.9596C8.99013 18.4462 8.36044 17.7327 7.92264 16.8192C7.49024 15.9058 7.27403 14.8464 7.27403 13.6411C7.27403 12.4358 7.49024 11.3764 7.92264 10.4629C8.36044 9.54948 8.99013 8.83872 9.81169 8.33065C10.6333 7.81717 11.6278 7.56043 12.7953 7.56043C13.9574 7.56043 14.9492 7.81717 15.7707 8.33065C16.5977 8.83872 17.2274 9.54948 17.6598 10.4629C18.0922 11.3764 18.3084 12.4358 18.3084 13.6411C18.3084 14.8464 18.0922 15.9058 17.6598 16.8192C17.2274 17.7327 16.5977 18.4462 15.7707 18.9596C14.9492 19.4677 13.9574 19.7217 12.7953 19.7217ZM12.7953 18.1083C13.6222 18.1192 14.3087 17.9381 14.8546 17.5651C15.4059 17.1868 15.8194 16.6625 16.095 15.9923C16.3707 15.3166 16.5085 14.5329 16.5085 13.6411C16.5085 12.7493 16.3707 11.9709 16.095 11.3061C15.8194 10.6359 15.4059 10.1143 14.8546 9.74136C14.3087 9.36841 13.6222 9.17924 12.7953 9.17383C11.9683 9.16302 11.2792 9.34409 10.7278 9.71704C10.1819 10.09 9.77116 10.6143 9.4955 11.2899C9.21984 11.9655 9.07931 12.7493 9.07391 13.6411C9.0685 14.5329 9.20363 15.3139 9.47929 15.9842C9.75494 16.649 10.1684 17.1679 10.7197 17.5408C11.2765 17.9138 11.9683 18.1029 12.7953 18.1083Z" fill="white" />
+                <path d="M19.2045 21.1439L19.2071 20.6677L20.8124 19.2288C20.9421 19.1145 21.03 19.0052 21.0761 18.9011C21.1239 18.797 21.1478 18.6929 21.1478 18.5888C21.1478 18.4573 21.1188 18.3396 21.0607 18.2355C21.0027 18.1296 20.9225 18.046 20.8201 17.9845C20.7177 17.9231 20.5999 17.8924 20.4668 17.8924C20.3302 17.8924 20.2082 17.9248 20.1006 17.9897C19.9948 18.0528 19.912 18.1373 19.8523 18.2431C19.7925 18.349 19.7635 18.4633 19.7652 18.5862H19.2173C19.2173 18.3472 19.2711 18.1382 19.3786 17.9589C19.4879 17.778 19.6372 17.6372 19.8267 17.5365C20.0161 17.4341 20.2329 17.3829 20.477 17.3829C20.7091 17.3829 20.9174 17.4358 21.1017 17.5416C21.286 17.6457 21.4311 17.7891 21.5369 17.9717C21.6445 18.1544 21.6982 18.3626 21.6982 18.5964C21.6982 18.7654 21.6761 18.9088 21.6317 19.0266C21.5873 19.1443 21.5207 19.2536 21.432 19.3543C21.3432 19.455 21.2323 19.5642 21.0991 19.682L19.86 20.788L19.8011 20.6344H21.6982V21.1439H19.2045Z" fill="white" />
+              </g>
+            </svg>
+          </div>
+        ))}
       </main>
     </>
   );

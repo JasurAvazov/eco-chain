@@ -42,8 +42,7 @@
       color: var(--text);
 
       path {
-        fill: var(--text);
-        stroke: var(--text);
+        fill: var(--text) !important;
       }
     }
   }

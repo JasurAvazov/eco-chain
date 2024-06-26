@@ -113,18 +113,34 @@
   justify-content: center;
   flex-direction: column;
 
+  &::before { 
+    content: '';
+    display: block;
+    box-shadow: 0 0 20vmin 4vmin var(--light-purple);
+    @include resa('width', 200px);
+    @include resa('height', 200px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+
   .button {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: transparent;
     border: none;
-    border-radius: 50%;
-    box-shadow: 0 0 20vmin 4vmin var(--light-purple);
-    @include resa('width', 200px);
-    @include resa('height', 200px);
+    position: relative;
+    width: 100%;
+    @include resa('padding-top', 200px);
+    @include resa('padding-bottom', 200px);
+    @include resa('margin-top', -200px);
+    @include resa('margin-bottom', -200px);
 
-    img {
+    .main {
       @include resa('width', 234px);
       @include resa('height', 230px);
     }
@@ -202,9 +218,36 @@
   @include resa('line-height', 12px);
   text-decoration: none;
   color: var(--text);
+  z-index: 1;
 
   svg {
     @include resa('width', 16px);
     @include resa('height', 16px);
+  }
+}
+
+.effect {
+  position: absolute;
+  @include resa('width', 28px);
+  @include resa('height', 28px);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: fadeOut 1500ms forwards;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
   }
 }

@@ -37,8 +37,8 @@ const NavBar = () => {
         Друзья
       </Link>
       <Link
-        href="/analytics"
-        className={`${styles.tab} ${isActive('/analytics') ? styles.active : ''}`}
+        href="/tasks"
+        className={`${styles.tab} ${isActive('/tasks') ? styles.active : ''}`}
       >
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.4" clip-path="url(#clip0_40_11309)">
@@ -53,8 +53,8 @@ const NavBar = () => {
         Задания
       </Link>
       <Link
-        href="/more"
-        className={`${styles.tab} ${isActive('/more') ? styles.active : ''}`}
+        href="/quests"
+        className={`${styles.tab} ${isActive('/quests') ? styles.active : ''}`}
       >
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.4">

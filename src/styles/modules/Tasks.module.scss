@@ -1,0 +1,142 @@
+@import '../mixins.scss';
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  font-weight: 400;
+  @include resa('font-size', 14px);
+  @include resa('line-height', 14px);
+  @include resa('height', 60px);
+  position: relative;
+  z-index: 1;
+  background-color: var(--bg-2);
+
+  span {
+    font-weight: 400;
+    @include resa('font-size', 14px);
+    @include resa('line-height', 14px);
+    color: var(--text-2);
+    @include resa('margin-left', 12px);
+  }
+}
+
+.tasks {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  @include resa('padding-top', 60px);
+  @include resa('padding-bottom', 70px);
+  @include resa('padding-left', 16px);
+  @include resa('padding-right', 16px);
+
+  .title {
+    font-weight: 400;
+    @include resa('font-size', 12px);
+    @include resa('margin-top', 16px);
+    @include resa('margin-bottom', 16px);
+    color: var(--text-2);
+  }
+
+  .list {
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    @include resa('gap', 8px);
+  }
+
+  .item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    @include resa('padding', 16px);
+    @include resa('padding-top', 14px);
+    @include resa('padding-bottom', 14px);
+    background-color: var(--bg);
+    @include resa('border-radius', 4px);
+    position: relative;
+
+    &.completed {
+      opacity: .5;
+      pointer-events: none;
+    }
+  }
+
+  .picture {
+    @include resa('width', 40px);
+    @include resa('height', 40px);
+    background-color: var(--bg-2);
+    @include resa('border-radius', 4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include resa('margin-right', 12px);
+
+    svg {
+      @include resa('width', 16px);
+      @include resa('height', 16px);
+    }
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    @include resa('gap', 4px);
+
+    .name, .text {
+      font-weight: 400;
+      @include resa('font-size', 12px);
+      color: var(--text);
+    }
+
+    .text {
+      color: var(--text-2);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      span {
+        width: max-content;
+        @include resa('margin-left', 12px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include resa('gap', 4px);
+      }
+    }
+  }
+
+  .btn {
+    @include resa('width', 40px);
+    @include resa('height', 40px);
+    position: absolute;
+    @include resa('top', 14px);
+    @include resa('right', 16px);
+    background-color: transparent;
+    border: solid var(--border);
+    @include resa('border-width', 1px);
+    @include resa('border-radius', 4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      @include resa('width', 16px);
+      @include resa('height', 16px);
+    }
+
+    &.done {
+      background-color: #d3f49162;
+      border-color: transparent;
+    }
+  }
+}
